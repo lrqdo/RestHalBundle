@@ -10,7 +10,7 @@
     },
     "require": {
         "php": "^7.4",
-        "sensio/framework-extra-bundle": "v6.1.4",
+        "sensio/framework-extra-bundle": ">=6.1",
         "nocarrier/hal": "~0.9"
     },
     "require-dev": {
