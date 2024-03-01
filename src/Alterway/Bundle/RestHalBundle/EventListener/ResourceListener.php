@@ -5,11 +5,11 @@ namespace Alterway\Bundle\RestHalBundle\EventListener;
 use Alterway\Bundle\RestHalBundle\ApiResource\ResourceInterface;
 use Alterway\Bundle\RestHalBundle\Controller\Annotations\Hal;
 use Alterway\Bundle\RestHalBundle\Response\HalResponse;
-use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
+use Symfony\Component\HttpKernel\Event\ViewEvent;
 
 class ResourceListener
 {
-    public function onKernelView(GetResponseForControllerResultEvent $event)
+    public function onKernelView(ViewEvent $event)
     {
         $request = $event->getRequest();
 
