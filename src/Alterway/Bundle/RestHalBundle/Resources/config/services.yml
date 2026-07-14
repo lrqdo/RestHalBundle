@@ -2,3 +2,7 @@ services:
     Alterway\Bundle\RestHalBundle\EventListener\ResourceListener:
         tags:
             - { name: kernel.event_listener, event: kernel.view, method: onKernelView }
+
+    Alterway\Bundle\RestHalBundle\EventListener\HalConfigListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }

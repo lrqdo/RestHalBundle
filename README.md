@@ -8,12 +8,6 @@ Add the bundle to your composer.json:
 
     composer require alterway/rest-hal-bundle
 
-Add the following line at the end of your `autoload.php`:
-
-```php
-Doctrine\Common\Annotations\AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
-```
-
 Enable your bundle in your `AppKernel.php`:
 
 ```php
@@ -66,32 +60,23 @@ class UserResource extends Resource
 
 ### Controller
 
-#### With annotations:
-
-Remember to enable annotations :
-
-    sensio_framework_extra:
-    router:  { annotations: true }
-    request: { converters: true }
-    view:    { annotations: true }
-    cache:   { annotations: true }
+#### With the `#[Hal]` attribute:
 
 ```php
 // some controller or yours
 
+use Alterway\Bundle\RestHalBundle\Controller\Annotations\Hal;
 use Alterway\DemoBundle\ApiResource\UserResource;
 
-/**
- * @Hal(code="200")
- */
-public function userWithAnnotateAction(Request $request)
+#[Hal(code: 200)]
+public function userWithAttributeAction(Request $request)
 {
     $user = new User;
     return new UserResource($this->get('router'), $user);
 }
 ```
 
-#### Without annotations:
+#### Without the attribute:
 
 ```php
 // some controller or yours
